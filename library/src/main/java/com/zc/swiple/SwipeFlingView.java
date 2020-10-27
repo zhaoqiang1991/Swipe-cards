@@ -272,7 +272,7 @@ public class SwipeFlingView extends AdapterView {
         float newHeight = originHeight * scale;
         newUnderChild.setScaleX(scale);
         newUnderChild.setScaleY(scale);
-        newUnderChild.setTranslationY((originHeight - newHeight) * .5f + CHILD_VERTICAL_OFFSET_BY_INDEX[startingIndex]);
+        newUnderChild.setTranslationY(-((originHeight - newHeight) * .5f + CHILD_VERTICAL_OFFSET_BY_INDEX[startingIndex]));
     }
 
     /**
@@ -301,7 +301,7 @@ public class SwipeFlingView extends AdapterView {
                 transY = (mCardHeight - curHeight) * .5f + CHILD_VERTICAL_OFFSET_BY_INDEX[tempIndex + 1] +
                         ((curHeight - targetHeight) * .5f + mCardVerticalOffset) * absPer;
             }
-            childView.setTranslationY(transY);
+            childView.setTranslationY(-transY);
             childView.setScaleX(scaleOfPer);
             childView.setScaleY(scaleOfPer);
             /*log(curIndex + ";" + converChildView(childView).getTag() + ";curScale:" + curScale
